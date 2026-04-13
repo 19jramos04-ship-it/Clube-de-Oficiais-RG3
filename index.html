@@ -274,7 +274,7 @@
           </select>
         </div>
         <div class="field"><label>Nome</label><input id="of-nome" placeholder="Apelido ou nome completo"></div>
-        <div class="field"><label>nº Tel</label><input id="of-nim" placeholder="nº de telemóvel"></div>
+        <div class="field"><label>nº Tel</label><input id="of-nºtel" placeholder="nº de telemóvel"></div>
       </div>
       <div class="actions"><button class="btn btn-gold" onclick="addOficial()">Adicionar Oficial</button></div>
     </div>
@@ -756,12 +756,12 @@ function addOficial() {
   requireAdmin(()=>{
     const posto = document.getElementById('of-posto').value;
     const nome  = document.getElementById('of-nome').value.trim();
-    const nim   = document.getElementById('of-nim').value.trim();
+    const nºtel   = document.getElementById('of-nºtel').value.trim();
     if(!nome) return snack('Introduza o nome do oficial.', 'red');
-    state.oficiais.push({ id:_id(), posto, nome, nim });
+    state.oficiais.push({ id:_id(), posto, nome, nºtel });
     save(); renderOficiais(); renderConsumoSelects();
     document.getElementById('of-nome').value = '';
-    document.getElementById('of-nim').value = '';
+    document.getElementById('of-nºtel').value = '';
     snack('Oficial adicionado.', 'green');
   });
 }
@@ -776,7 +776,7 @@ function renderOficiais() {
     div.className = 'oficial-card';
     div.onclick = ()=>openOficial(of.id);
     div.innerHTML = `
-      <div class="oc-posto">${of.posto}${of.nim?' · '+of.nim:''}</div>
+      <div class="oc-posto">${of.posto}${of.nºtel?' · '+of.nºtel:''}</div>
       <div class="oc-name">${of.nome}</div>
       <div class="oc-saldo ${divida>0?'pos':'zero'}">${fmt(divida)}</div>
       <div style="font-size:11px;color:var(--text-dim);margin-top:2px;">${divida>0?'em dívida':'sem dívida'}</div>`;
