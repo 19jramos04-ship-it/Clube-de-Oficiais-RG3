@@ -630,7 +630,7 @@ function goto(s) {
   if(s==='oficiais') { applyAdminUI(); renderOficiais(); }
   if(s==='produtos') { applyAdminUI(); renderProdutos(); }
   if(s==='dashboard') renderDashboard();
-  if(s==='consumos') renderConsumos();
+  if(s==='consumos') { applyAdminUI(); renderConsumos(); }
 }
 window.goto = goto;
 
