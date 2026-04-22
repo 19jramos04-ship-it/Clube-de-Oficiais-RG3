@@ -835,6 +835,7 @@ function renderConsumos() {
     </tr>`;
   });
   if(!sorted.length) t.innerHTML='<tr><td colspan="5" style="color:var(--text-dim);">Nenhum consumo.</td></tr>';
+  const ph=document.getElementById('panel-historico'); if(ph) ph.style.display=adminUnlocked?'':'none';
 }
 
 function delConsumo(id){
